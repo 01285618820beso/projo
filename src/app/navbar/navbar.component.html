@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light ">
+    <a href="#" class="navbar-brand"><b>CarSeller</b></a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between k" id="navbarCollapse">
+        <div class="navbar-nav">
+            <div class="nav-item dropdown" ngbDropdown>
+                <a  class="nav-link dropdown-toggle hvr-underline-from-center" ngbDropdownToggle >Cars</a>
+                <div class="dropdown-menu x"  ngbDropdownMenu >
+                    <a routerLink="/cars/newcars" class="dropdown-item " ngbDropdownItem>NewCar</a>
+                    <a routerLink="/cars/usedcars" class="dropdown-item" ngbDropdownItem>UsedCar</a>
+                </div>
+            </div>
+            <a routerLink="/top100" class="nav-item nav-link hvr-underline-from-center ">Top100</a>
+            <a routerLink="/question" class="nav-item nav-link hvr-underline-from-center">Q&A</a>
+         
+        </div>
+    <!-- <form class="form-inline">
+            <div class="input-group">                    
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    -->
+        <div class="navbar-nav">
+            <a routerLink="/login" class="nav-item nav-link hvr-underline-from-center">Login</a>
+        </div>
+    </div>
+</nav>
