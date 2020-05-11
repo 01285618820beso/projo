@@ -1,0 +1,65 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-6">    <form #f=ngForm (ngSubmit)="save(f.value)">
+        <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text " required #name="ngModel" minlength="2" [(ngModel)]="product.name"  name="name" id="name"
+                class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="name.touched&&name.invalid">
+            <div *ngIf="name.errors.required">Please Enter The Name</div>
+            <div *ngIf="name.errors.minlength">The Min Length is {{name.errors.minlength.requiredLength}}</div>
+
+
+        </div>
+        <div class="form-group">
+            <label for="title">Price</label>
+            <input [(ngModel)]="product.price" name="price"  required #price="ngModel" type="text " id="price" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="title">love</label>
+            <input [(ngModel)]="product.isfav" name="isfav"  required #isfav="ngModel" type="text " id="isfav" class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="price.touched&&price.invalid">
+            <div *ngIf="price.errors.required">Please Enter The Price</div>
+
+
+        </div>
+        <div class="form-group">
+            <label for="imgurl">IMGUrl</label>
+            <input  [(ngModel)]="product.imgurl" autocomplete="off" required #imgurl="ngModel"  name="imgurl" id="imgurl" class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="imgurl.touched&&imgurl.invalid">
+            <div *ngIf="imgurl.errors.required">Please Enter The Imge Url</div>
+
+
+        </div>
+        <div class="form-group">
+            <label for="Category">Category</label>
+            <select id="Category" required #cat="ngModel" [(ngModel)]="product.cats" name="cats" class="form-control">
+                <option *ngFor="let cat of cats | async" [value]="cat.name">{{cat.name}}</option>
+            </select>
+        </div>
+        <div class="alert alert-danger"  *ngIf="cat.touched&&cat.invalid">
+            <div *ngIf="cat.errors.required">Please Enter The Categroy</div>
+
+
+        </div>
+        <button *ngIf="this.id" class="btn btn-primary">Update</button>
+        <button *ngIf="!this.id" class="btn btn-primary">Add</button>
+
+     <button class="btn btn-danger" *ngIf="this.id" (click)="delete()">Delete</button>
+
+    </form></div>
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;" *ngIf="name.value">
+            <img class="card-img-top" [src]="imgurl.value" >
+            <div class="card-body">
+              <h5 class="card-title">{{name.value}}</h5>
+              <p class="card-text">{{price.value}}</p>
+           
+            </div>
+          </div>
+    </div>
+</div>
+</div>

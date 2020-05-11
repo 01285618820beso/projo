@@ -1,23 +1,106 @@
+<header class="header-section">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 text-center text-lg-left">
+                    <!-- logo -->
+                    <a href="./index.html" class="site-logo">
+                        <img src="https://pngimage.net/wp-content/uploads/2018/06/logo-ab-png.png" alt="">
+                    </a>
+                </div>
+                <div class="col-xl-6 col-lg-5">
+                    <form class="header-search-form">
+                        <input type="text" placeholder="Search on MyShop ....">
+                        <button><i class="flaticon-search"></i></button>
+                    </form>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="user-panel">
+                        <div class="up-item">
+                            
+                  <ul class="main-menu"><li>
+                      <a href="#" *ngIf="service.user |async as user else ann">{{user.displayName}}
+                      <ul class="sub-menu">
+                        <li>   <a routerLink="/product" >Manage Product</a>
+
+                        </li>
+                        <li> <a (click)="logout()">LogOut</a>
+                        </li>
+                      </ul>
+                    </a> 
+                    </li>
+                    
+                  </ul>  
+                
+                            <ng-template  #ann >
+
+                                <div>
+                                    <a routerLink="login">Login</a>
+                            
+                                </div>
+                            </ng-template>
+
+
+                        </div>
+                        <div class="up-item">
+                            <div class="shopping-card">
+                                <fa-icon [icon]=" service.fabag"></fa-icon>                   
+                                <span>{{counterx}}</span>
+                            </div>
+                            <a routerLink="/shoppingCart" class="ml-3  ">ShoppingCart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="main-navbar">
+        <div class="container">
+            <!-- menu -->
+            <ul class="main-menu">
+                <li>
+                <a routerLink="/" [class.active]='!categroy' [queryParams]="{category:'' }">
+                    AllCats
+                    
+                </a>
+            </li>
+            <li *ngFor ="let cat of cats |async">
+                <a routerLink="/" [queryParams]="{category:cat.name }"[class.active]='categroy===cat.name' >
+                    {{cat.name}}
+                </a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+   <!-- 
 <nav class="navbar navbar-expand-md navbar-light bg-light ">
-    <a href="#" class="navbar-brand"><b>CarSeller</b></a>
+    <a href="#" class="navbar-brand"><b>Shop</b></a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="xx">
+        <a routerLink="/shoppingCart" class="nav-link  ">ShoppingCart</a>
+        <p class="badge badge-warning  badge-pill  ">{{counterx}}</p>
+    </div>
+   
+>
 
     <div class="collapse navbar-collapse justify-content-between k" id="navbarCollapse">
         <div class="navbar-nav">
-            <div class="nav-item dropdown" ngbDropdown>
-                <a  class="nav-link dropdown-toggle hvr-underline-from-center" ngbDropdownToggle >Cars</a>
+            <div class="nav-item dropdown" ngbDropdown *ngIf="service.user |async as user else ann">
+                <a  class="nav-link dropdown-toggle hvr-underline-from-center" ngbDropdownToggle >{{user.displayName}}</a>
                 <div class="dropdown-menu x"  ngbDropdownMenu >
-                    <a routerLink="/cars/newcars" class="dropdown-item " ngbDropdownItem>NewCar</a>
-                    <a routerLink="/cars/usedcars" class="dropdown-item" ngbDropdownItem>UsedCar</a>
+               
+                    <a routerLink="/product" class="dropdown-item ">Manage Product</a>
+                    <a (click)="logout()" class="dropdown-item">LogOut</a>
                 </div>
             </div>
-            <a routerLink="/top100" class="nav-item nav-link hvr-underline-from-center ">Top100</a>
-            <a routerLink="/question" class="nav-item nav-link hvr-underline-from-center">Q&A</a>
+
          
         </div>
-    <!-- <form class="form-inline">
+     <form class="form-inline">
             <div class="input-group">                    
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">
@@ -25,9 +108,6 @@
                 </div>
             </div>
         </form>
-    -->
-        <div class="navbar-nav">
-            <a routerLink="/login" class="nav-item nav-link hvr-underline-from-center">Login</a>
-        </div>
+ 
     </div>
-</nav>
+</nav>    -->
