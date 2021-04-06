@@ -1,21 +1,27 @@
 <div class="container">
-<p><a class="btn btn-primary" routerLink="/product/new" >AddNewProduct</a>
+<p><a class="btn btn-primary" routerLink="/ManageEmployee/new" >{{'ADD_NEW_EMPLOYEE'|translate}}</a>
 </p>
-<input type="text" class="form-control mb-3" placeholder="Search" #query (keyup)="filter(query.value)">
+<!-- <input type="text" class="form-control mb-3" placeholder="Search" #query (keyup)="filter(query.value)"> -->
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table">
     <thead class="thead-dark">
          <tr>
-             <th scope="col">Name</th>
-             <th scope="col">Price</th>
-             <th scope="col">Edit</th>
+             <th scope="col">{{'NAME'|translate}}</th>
+             <th scope="col">{{'DEPARTMENT'|translate}}</th>
+             <th scope="col">{{'EMPLOYEE_GENDER'|translate}}</th>
+             <th scope="col">{{'EDIT'|translate}} </th>
+
+
 
          </tr>
     </thead>
     <tbody>
         <tr *ngFor="let product of filteredProducts ">   
             <td>{{product.payload.val().name}}</td>
-            <td>{{product.payload.val().price}}</td>
-            <td><a [routerLink]="['/product/new',product.key]">Edit</a></td>
+            <td>{{product.payload.val().cats}}</td>
+          
+                <td>{{product.payload.val().gender}}</td>
+
+            <td><a [routerLink]="['/ManageEmployee/new',product.key]">{{'EDIT'|translate}}</a></td>
 
 
         </tr>

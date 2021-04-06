@@ -1,6 +1,0 @@
-<h2>TodoList</h2>
-<input type="text" #inputt class="form-control" (keyup.enter)="additem(inputt)">
-<div class="list-group" >
-<button class="list-group-item" (click)="remove(inputt)" *ngFor="let item of items">{{item}}</button>
-
-</div>

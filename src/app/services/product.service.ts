@@ -10,6 +10,7 @@ export class ProductService {
   create(product){
     this.db.list('/product').push(product);
   }
+  
   get(){
     return this.db.list('/product').snapshotChanges();
   }
@@ -22,7 +23,7 @@ export class ProductService {
 
   }
   Delete( productid : string ){
-    return this.db.object('/ product/' + productid).remove();
+    return this.db.object('/product/' + productid).remove();
   
   }
   update( productid:string ,product){
