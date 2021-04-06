@@ -1,163 +1,38 @@
-<!--
-<ng-container *ngFor="let x of Filterproduct let i = index" >
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="shop">
-                        <div class="shop-img">
-                            <img [src]="x.payload.val().imgurl" alt=''>
-                        </div>
-                        <div class="shop-body">
-                            <h3>{{x.payload.val().name}}</h3>
-                            <button  *ngIf="getquatity(i) === 0;else updatedquatns" (click)="addtocart(i)" class="btn btn-primary btn-block">Add To Cart</button>
-                            <ng-template #updatedquatns>
-                                <div class="row no-gutters">
-                                    <div class="col-2">
-                                        <button  (click)="removefromcart(i)" class="btn btn-primary ">-</button>
-            
-                                    </div>
-                                    <div class="col text-center mt-1"> {{getquatity(i)}} Items</div>
-            
-                                    <div class="col-2"><button (click)="addtocart(i)" class="btn btn-primary    ">+</button>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-</ng-container>
-
--->
 <div class="container">
-<div class="row">
-<ng-container *ngFor="let x of Filterproduct let i = index" >
-
-
-
-        <div class="col-md-3">
-<div class="products-tabs">
-    <!-- tab -->
-
-    <div id="tab1" class="tab-pane active">
-        <div class="products-slick" data-nav="#slick-nav-1">
-            <!-- product -->
-            <div class="product">
-                <a [routerLink]="['product-details/',x.key]">
-
-                <div class="product-img">
-                    <img [src]="x.payload.val().imgurl" alt="">
-             <!--       <div class="product-label">
-                        <span class="sale">-30%</span>
-                        <span class="new">NEW</span>
-                    </div>-->
-                </div>
-                </a>
-                <div class="product-body">
-                    <p class="product-category">{{x.payload.val().cats}}</p>
-                    <h3 class="product-name">{{x.payload.val().name}}</h3>
-                    <h4 class="product-price">${{x.payload.val().price}}<!--<del class="product-old-price">$990.00</del>--></h4> 
-                <div class="product-rating">
-                    <fa-icon  [icon]=" service.fastar"></fa-icon>    
-                    <fa-icon [icon]=" service.fastar"></fa-icon>    
-                    <fa-icon [icon]=" service.fastar"></fa-icon>    
-                    <fa-icon [icon]=" service.fastar"></fa-icon>    
-
-                    </div>
-                    <div class="product-btns">
-                        <button class="add-to-wishlist" > <fa-icon [icon]=" service.faheart"></fa-icon>
-                               <span class="tooltipp">Love</span></button>
-                       
-                        <button class="add-to-compare">  <fa-icon [icon]=" service.faeye"></fa-icon>                   
-                            <span class="tooltipp">Quick View</span></button>
-                  
-                    </div>
-                </div>
-                <div class="add-to-cart">
-                    <button  *ngIf="getquatity(i) === 0;else updatedquatns" (click)="addtocart(i)"
-                     class="add-to-cart-btn">Add To Cart <fa-icon [icon]=" service.fashop"></fa-icon></button>
-                      <ng-template #updatedquatns>
-                    <div class="row no-gutters">
-                        <div class="col-2">
-                            <button  (click)="removefromcart(i)" class="add-to-cart-btn"><fa-icon [icon]=" service.famin"></fa-icon></button>
-
-                        </div>
-                        <div class="col-6  text-center ml-2 mt-1" > {{getquatity(i)}} Items</div>
-
-                        <div class="col-2"><button (click)="addtocart(i)" class="add-to-cart-btn"><fa-icon [icon]=" service.faplus"></fa-icon></button>
-                        </div>
-                    </div>
-                </ng-template>
-
-                </div>
-            </div>
-            </div>
-            </div>
-
-        </div>
-    
-
-</div>
-
-</ng-container>
-</div></div>
-        <!-- /product -->
-<!--
-<div class="container mt-3">
-<div class="row">
-    
-<div class="col-3">
-
-    <a routerLink="/" [class.active]='!categroy' [queryParams]="{category:'' }" class="list-group-item  list-group-item-action">
-        AllCats
-    </a>
-    <div *ngFor ="let cat of cats |async" class="list-group">
- 
-<a routerLink="/" [queryParams]="{category:cat.name }"[class.active]='categroy===cat.name' class="list-group-item  list-group-item-action">
-    {{cat.name}}
-</a>
-</div></div>
-<div class="col ">
     <div class="row">
-        <ng-container *ngFor="let x of Filterproduct let i = index" >
-            <div class="col-md-4 shop">
-            <div  *ngIf="x.payload.val().name">
-                <div class="shop-img">
-                <img class="card-img-top" [src]="x.payload.val().imgurl" ></div>
-                <div class="shop-body">
-                  <h3>{{x.payload.val().name}}</h3>
-                  <h3>{{getquatity(i)}} Items</h3>
+        <ng-container *ngFor="let x of Filterproduct let i = index">
 
 
+            <div class="col-md-3">
+                <div class="products-tabs">
+             
 
-                </div>
-                <div class="">
-                    <button  *ngIf="getquatity(i) === 0;else updatedquatns" (click)="addtocart(i)" class="btn btn-primary btn-block">Add To Cart</button>
-                </div>
-                <ng-template #updatedquatns>
-                    <div class="row no-gutters">
-                        <div class="col-2">
-                            <button  (click)="removefromcart(i)" class="btn btn-primary btn-block">-</button>
+                    <div id="tab1" class="tab-pane active">
+                        <div class="products-slick" data-nav="#slick-nav-1">
+                
+                            <div class="product">
+                                <a [routerLink]="['Employee/',x.key]">
 
-                        </div>
-                        <div class="col text-center mt-1"> {{getquatity(i)}} Items</div>
-
-                        <div class="col-2"><button (click)="addtocart(i)" class="btn btn-primary btn-block">+</button>
+                                    <div class="product-img">
+                                        <img [src]="x.payload.val().imgurl" alt="">
+              
+                                    </div>
+                                </a>
+                                <div class="product-body">
+                                    <h3 class="product-name">{{x.payload.val().name}}</h3>
+                                  
+                                </div>
+                            
+                            </div>
                         </div>
                     </div>
-                </ng-template>
-            </div>
-            
-        </div> 
-        
-                    </ng-container>
-</div>
 
+                </div>
+
+
+            </div>
+
+        </ng-container>
+    </div>
 </div>
-</div>
-</div>
--->

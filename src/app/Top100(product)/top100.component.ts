@@ -22,14 +22,14 @@ subscribe :Subscription;
    }
  
 
-  filter(query){
-    if(query){
-      this.filteredProducts=this.products.filter(i=>i.payload.val().name.toLowerCase().includes(query))
-    }
-    else{
-      this.filteredProducts=this.products;
-    }
-  }
+  // filter(query){
+  //   if(query){
+  //     this.filteredProducts=this.products.filter(i=>i.payload.val().name.toLowerCase().includes(query))
+  //   }
+  //   else{
+  //     this.filteredProducts=this.products;
+  //   }
+  // }
 
   ngOnDestroy(): void {
     this.subscribe.unsubscribe;
@@ -37,7 +37,7 @@ subscribe :Subscription;
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 1
+      pageLength: 3
   }
 
   }

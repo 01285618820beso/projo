@@ -2,40 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-5 x">
-                <img [src]="product.payload.val().imgurl"
-                    class="img-fluid" alt="Colorlib Template">
+                <img [src]="product.payload.val().imgurl" class="img-fluid" >
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>{{product.payload.val().name}}</h3>
-                <p class="price"><span>{{product.payload.val().price}}</span></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusamus labore sit libero
-                    veritatis, est esse iusto deleniti doloremque, aliquid pariatur neque impedit dolorem! Repellendus
-                    praesentium temporibus vitae sequi asperiores.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam delectus consequuntur doloribus
-                    qui ratione, cumque at nam mollitia voluptatibus eveniet reiciendis aspernatur quam, numquam
-                    corrupti necessitatibus incidunt voluptates minima modi!
-                </p>
-                <div class="add-to-cart">
-                    <button *ngIf="getquatity() === 0;else updatedquatns" (click)="addtocart()"
-                        class="add-to-cart-btn">Add To Cart <fa-icon [icon]=" service.fashop"></fa-icon></button>
-                    <ng-template #updatedquatns>
-                        <div class="row no-gutters">
-                            <div class="col-2">
-                                <button (click)="removefromcart()" class="add-to-cart-btn">
-                                    <fa-icon [icon]=" service.famin"></fa-icon>
-                                </button>
-
-                            </div>
-                            <div class="col-6  text-center ml-2 mt-1"> {{getquatity()}} Items</div>
-
-                            <div class="col-2"><button (click)="addtocart()" class="add-to-cart-btn">
-                                    <fa-icon [icon]=" service.faplus"></fa-icon>
-                                </button>
-                            </div>
-                        </div>
-                    </ng-template>
-
-                </div>
+                <p>Hello my Name is {{product.payload.val().name}} And I'am Is a Test Employee</p>
+            
+         
 
             </div>
         </div>

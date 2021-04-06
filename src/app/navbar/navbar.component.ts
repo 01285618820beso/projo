@@ -1,11 +1,9 @@
-import { IShoppingCartitems } from './../model/IShoppingcartitems';
-import { ShoppingCartService } from './../services/shopping-cart.service';
-import { AuthService } from './../services/auth.service';
-import { AngularFireAuth } from 'angularfire2/auth';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { CategoriesService } from '../services/categories.service';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -14,14 +12,17 @@ import { CategoriesService } from '../services/categories.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  date :Date=new Date();
   counterx=0;
   newproduct: any[] = [];
   Filterproduct: any[] = [];
   categroy = '';
   cats;
 
-  constructor( private catserx: CategoriesService,private route: ActivatedRoute,public service :AuthService,
-     private cartser : ShoppingCartService,private prodService: ProductService, ) {
+  constructor( private catserx: CategoriesService,private route: ActivatedRoute,
+    private prodService: ProductService,private translate: TranslateService ) {
+    translate.setDefaultLang('en');
+
     this.prodService.get().subscribe(prodx => {
       this.newproduct = prodx;
       this.route.queryParamMap.subscribe(params => {
@@ -33,19 +34,17 @@ export class NavbarComponent implements OnInit {
     this.cats = catserx.getcats();
 
    }
+   ChangeLangEnglish(){
+    this.translate.setDefaultLang('en');
 
-  logout(){
-    this.service.logout()
   }
+  ChangeLangArabic(){
+    this.translate.setDefaultLang('ar');
+
+  }
+
 async ngOnInit (){
-  let cart = this.cartser.getcart();
-  (await cart).valueChanges().subscribe(x=>{
-    this.counterx=0;
-    for( let item in x.items)
-    {
-      this.counterx += x.items[item].quatity;
-    }
-  })
+
 }
 
 
